@@ -1,4 +1,4 @@
-/users
-/shops
-/firms
-/taxis
+- /users
+- /shops
+- /firms
+- /taxis
