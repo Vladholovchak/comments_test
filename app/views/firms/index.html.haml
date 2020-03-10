@@ -2,7 +2,7 @@
 - @firms.each do |firm|
   %p
     = firm.name
-  %h3 Comments
+  %h4 Comments
   = form_for [firm, Comment.new] do |f|
     = f.text_area :body, placeholder: "Add a comment"
     %br/

@@ -2,7 +2,7 @@
 - @taxis.each do |taxi|
   %p
     = taxi.car
-  %h3 Comments
+  %h4 Comments
   = form_for [taxi, Comment.new] do |f|
     = f.text_area :body, placeholder: "Add a comment"
     %br/
