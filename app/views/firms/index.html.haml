@@ -1,0 +1,11 @@
+%h1 Firms
+- @firms.each do |firm|
+  %p
+    = firm.name
+  %h3 Comments
+  = form_for [firm, Comment.new] do |f|
+    = f.text_area :body, placeholder: "Add a comment"
+    %br/
+    = f.submit "Add Comment"
+  %ul
+    = render(partial: 'comments/comment', collection: firm.comments)

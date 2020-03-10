@@ -1,0 +1,11 @@
+%h1 Users
+- @users.each do |user|
+  %p
+    = user.email
+  %h3 Comments
+  = form_for [user, Comment.new] do |f|
+    = f.text_area :body, placeholder: "Add a comment"
+    %br/
+    = f.submit "Add Comment"
+  %ul
+    = render(partial: 'comments/comment', collection: user.comments)
