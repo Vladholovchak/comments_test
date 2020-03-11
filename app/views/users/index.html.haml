@@ -1,10 +1,11 @@
-%h4 Users
+%h1 Taxis
 - @users.each do |user|
-  %li user:
-  = user.email
+  %p
+    = user.email
   %h4 Comments
-  - user.comments.each do |comment|
-    %ul
-    = comment.body
-    %p
-
+  = form_for [user, Comment.new] do |f|
+    = f.text_area :body, placeholder: "Add a comment"
+    %br/
+    = f.submit "Add Comment"
+  %ul
+    = render(partial: 'comments/comment', collection: user.comments)

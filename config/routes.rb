@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: "shops#index"
 
-  devise_for :users
 
   resources :shops do
     resources :comments

@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comment_params)
-    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_back fallback_location: '/', allow_other_host: false, notice: 'Your comment was successfully posted!'
@@ -27,6 +26,7 @@ class CommentsController < ApplicationController
     @commentable = Shop.find_by_id(params[:shop_id]) if params[:shop_id]
     @commentable = Taxi.find_by_id(params[:taxi_id]) if params[:taxi_id]
     @commentable = Firm.find_by_id(params[:firm_id]) if params[:firm_id]
+    @commentable = User.find_by_id(params[:user_id]) if params[:user_id]
     @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
   end
 end
